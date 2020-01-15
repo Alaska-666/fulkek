@@ -95,7 +95,7 @@ class Test extends React.Component {
                 </div>
             }
         }
-        let buttonNext = !this.props.done ? <div id="u16" className="ax_default primary_button">
+        let buttonNext = !done ? <div id="u16" className="ax_default primary_button">
                 <button id="u16_text" className="text " onClick={(e) => this.onNext(e)}>{next}</button>
             </div> : null;
         return (
