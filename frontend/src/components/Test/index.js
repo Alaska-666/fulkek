@@ -68,6 +68,7 @@ class Test extends React.Component {
     }
 
     render() {
+
         let next = "ДАЛЕЕ";
         let questions = "Грузится...";
         let done = false;
@@ -94,6 +95,9 @@ class Test extends React.Component {
                 </div>
             }
         }
+        let buttonNext = this.props.done ? <div id="u16" className="ax_default primary_button">
+                <button id="u16_text" className="text " onClick={(e) => this.onNext(e)}>{next}</button>
+            </div> : null;
         return (
             <div id="base" className="">
 
@@ -107,10 +111,7 @@ class Test extends React.Component {
                 <div id="u15" className="ax_default primary_button disabled">
                     <button id="u15_text" className="text " onClick={(e) => this.onExit(e)}>ВЫХОД</button>
                 </div>
-
-                <div id="u16" className="ax_default primary_button">
-                    <button id="u16_text" className="text " onClick={(e) => this.onNext(e)} disabled={done}>{next}</button>
-                </div>
+                {buttonNext}
             </div>
         )
     }

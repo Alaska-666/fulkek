@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')6#)=a^m@!*&8umj%63)kk%pyaq6_^$=sor0^evdd*!09$6vk('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -157,4 +157,4 @@ STATIC_ROOT = "/"
 APPEND_SLASH = True
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+#django_heroku.settings(locals())

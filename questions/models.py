@@ -18,7 +18,7 @@ class Question(models.Model):
 
 
 class Session(models.Model):
-
+    id = models.IntegerField(primary_key=True)
     CHOICES_ENUM = [("done", "test is answered"), ("running", "test is running now")]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     test = models.CharField(max_length=100)

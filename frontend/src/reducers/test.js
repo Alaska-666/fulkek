@@ -12,6 +12,7 @@ const testReducer = (state=initialState, action) => {
         case "NEXT":
             return {
                 ...state,
+                selected: -1,
                 currentQuestion: state.currentQuestion + 1,
             };
         case "SET_QUESTION":
