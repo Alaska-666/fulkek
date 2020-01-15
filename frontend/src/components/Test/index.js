@@ -17,7 +17,6 @@ class Test extends React.Component {
 
     onExit(event) {
         event.preventDefault();
-        this.props.history.push("/");
         postStat(JSON.stringify({
             test: this.testName,
             current: this.props.current,
@@ -29,6 +28,7 @@ class Test extends React.Component {
                 description: "Сохранили твои результатики))))",
             });
             this.props.clear();
+            this.props.history.push("/");
         }).catch((e) => {
             notification.error({
                 message: "Выход",
@@ -98,6 +98,7 @@ class Test extends React.Component {
         let buttonNext = !done ? <div id="u16" className="ax_default primary_button">
                 <button id="u16_text" className="text " onClick={(e) => this.onNext(e)}>{next}</button>
             </div> : null;
+        console.log(this.props);
         return (
             <div id="base" className="">
 

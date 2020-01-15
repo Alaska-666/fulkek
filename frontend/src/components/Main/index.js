@@ -52,6 +52,7 @@ class Main extends React.Component {
                 });
             }
         }
+        console.log("main", this.props);
         return <div id="base" className="">
             <div id="u10" className="ax_default primary_button">
                 <button id="u10_text" className="text " onClick={(e) => this.signOut(e)}>Выход пака!!</button>
