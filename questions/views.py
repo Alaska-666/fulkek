@@ -154,7 +154,7 @@ class UpdateTest(generics.UpdateAPIView):
         return response.Response({"updated": "ok"}, status=status.HTTP_200_OK)
 
 
-class ReadSessions(LoginRequiredMixin, generics.ListAPIView):
+class ReadSessions(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
         print("reading")
         user = request.user
@@ -165,7 +165,7 @@ class ReadSessions(LoginRequiredMixin, generics.ListAPIView):
         return response.Response(test, status=status.HTTP_200_OK)
 
 
-class UpdateSession(LoginRequiredMixin, generics.CreateAPIView):
+class UpdateSession(generics.CreateAPIView):
     serializer_class = SessionSerializer
 
     def create(self, request, *args, **kwargs):
