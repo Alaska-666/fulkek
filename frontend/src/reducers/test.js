@@ -17,7 +17,7 @@ const testReducer = (state=initialState, action) => {
         case "SET_QUESTION":
             return {
                 ...state,
-                currentQuestion: action.payload.current,
+                currentQuestion: parseInt(action.payload.current),
                 stat: action.payload.statistics,
                 loading: false,
             };
