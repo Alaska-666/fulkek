@@ -42,6 +42,13 @@ class Test extends React.Component {
         event.preventDefault();
         const data = this.props.stat.split("|").map(a => parseInt(a));
         console.log(data);
+        if (this.props.selected === -1) {
+            notification.info({
+                message: "Далее",
+                description: "Сперва выберите вариант)))"
+            });
+            return;
+        }
         data[this.props.selected] += 1;
         this.props.setSession(data.join("|"));
         this.props.setNext(this.props.current);
