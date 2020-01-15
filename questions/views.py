@@ -154,8 +154,9 @@ class UpdateTest(generics.UpdateAPIView):
         return response.Response({"updated": "ok"}, status=status.HTTP_200_OK)
 
 
-class ReadSessions(generics.ListAPIView):
+class ReadSessions(LoginRequiredMixin, generics.ListAPIView):
     def list(self, request, *args, **kwargs):
+        print("reading")
         user = request.user
         try:
             test = Session.objects.filter(user=user).values()
@@ -164,10 +165,11 @@ class ReadSessions(generics.ListAPIView):
         return response.Response(test, status=status.HTTP_200_OK)
 
 
-class UpdateSession(generics.CreateAPIView):
+class UpdateSession(LoginRequiredMixin, generics.CreateAPIView):
     serializer_class = SessionSerializer
 
     def create(self, request, *args, **kwargs):
+        print("updating")
         request.data["user"] = User.objects.get(username=request.user.username).pk
         s = self.get_serializer(data=request.data)
         if not s.is_valid():
