@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+#import django_heroku
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -81,8 +83,12 @@ WSGI_APPLICATION = 'fulkek.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'du06bg5bqrffi',
+        'USER': 'uhlzjrzxnnvyli',
+        'PASSWORD': '9f0c66f0e4ff8c6c4f45b5f18a32eeb74609a16361b578d95ef611efe6014664',
+        'HOST': 'ec2-54-247-171-30.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -124,6 +130,7 @@ JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'questions.views.jwt_response_handler'
 }
 
+DATABASE_URL = "postgres://uhlzjrzxnnvyli:9f0c66f0e4ff8c6c4f45b5f18a32eeb74609a16361b578d95ef611efe6014664@ec2-54-247-171-30.eu-west-1.compute.amazonaws.com:5432/du06bg5bqrffi"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -147,3 +154,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = "/"
 
 APPEND_SLASH = True
+
+# Activate Django-Heroku.
+#django_heroku.settings(locals())
