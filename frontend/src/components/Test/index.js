@@ -73,7 +73,7 @@ class Test extends React.Component {
         let questions = "Грузится...";
         let done = false;
         if (this.props.test) {
-            if (this.props.test.items.length -1 === this.props.current) next = "ЗАВЕРШИТЬ";
+            if (this.props.test.items.length - 1 === this.props.current) next = "ЗАВЕРШИТЬ";
             if (this.props.test.items.length  === this.props.current) {
                 done = true;
                 const values = this.props.stat.split("|").map((e) => parseInt(e));
