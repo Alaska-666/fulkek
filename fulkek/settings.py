@@ -144,4 +144,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = "/"
+
 APPEND_SLASH = True
