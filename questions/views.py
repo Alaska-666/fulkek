@@ -39,14 +39,6 @@ class CreateTest(generics.ListCreateAPIView):
             t["items"] = Question.objects.filter(test=t["name"]).values()
         return response.Response(tests, status=status.HTTP_200_OK)
 
-"""
-{
-    "name": "тест 1",
-    "answers": "да/так точно",
-      "items":[{"order":"1", "test":"тест 1", "text":"залуупа?", "variants":"da"}]
-}
-"""
-
 
 class GetTests(generics.ListAPIView):
     serializer_class = TestSerializer
