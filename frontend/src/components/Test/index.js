@@ -44,7 +44,7 @@ class Test extends React.Component {
         console.log(data);
         data[this.props.selected] += 1;
         this.props.setSession(data.join("|"));
-        this.props.setNext();
+        this.props.setNext(this.props.current);
     }
 
     onSelect(event) {
@@ -89,8 +89,7 @@ class Test extends React.Component {
                     <h1 style={{color: "cornflowerblue"}}>{question.text}</h1>
                     <div onChange={e => this.onSelect(e)}>
                         {variants.map((variant, key) => <p key={variant}><input
-                            key={variant} type="radio" value={key} name="questions"
-                            defaultChecked={this.props.selected === key}/>{variant}</p>)}
+                            key={variant} type="radio" value={key} name="questions" />{variant}</p>)}
                     </div>
                 </div>
             }
@@ -137,7 +136,7 @@ function mapDispatchToProps(dispatch) {
         setSession: (session) => dispatch({type: "SET_SESSION", payload: session}),
         setLoad: () => dispatch({type: "START"}),
         setError: (err) => dispatch({type: "ERROR", payload: err}),
-        setNext: () => dispatch({type: "NEXT"}),
+        setNext: (cnt) => dispatch({type: "NEXT", payload: cnt}),
         setSelect: (ans) => dispatch({type: "SELECT", payload: ans}),
         clear: () => dispatch({type: "CLEAR"}),
     }
