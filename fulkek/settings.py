@@ -121,6 +121,7 @@ REST_FRAMEWORK = {
      ),
 }
 
+
 CORS_ORIGIN_WHITELIST = [
     'http://localhost',
     'https://localhost',
