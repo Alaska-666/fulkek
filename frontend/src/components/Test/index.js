@@ -17,6 +17,7 @@ class Test extends React.Component {
 
     onExit(event) {
         event.preventDefault();
+        this.props.history.push("/");
         postStat(JSON.stringify({
             test: this.testName,
             current: this.props.current,
@@ -28,7 +29,6 @@ class Test extends React.Component {
                 description: "Сохранили твои результатики))))",
             });
             this.props.clear();
-            this.props.history.push("/");
         }).catch((e) => {
             notification.error({
                 message: "Выход",

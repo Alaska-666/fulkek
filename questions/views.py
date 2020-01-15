@@ -155,8 +155,6 @@ class UpdateTest(generics.UpdateAPIView):
 
 
 class ReadSessions(generics.ListAPIView):
-    login_url = '/login/'
-
     def list(self, request, *args, **kwargs):
         user = request.user
         try:
@@ -167,7 +165,6 @@ class ReadSessions(generics.ListAPIView):
 
 
 class UpdateSession(generics.CreateAPIView):
-    login_url = '/login/'
     serializer_class = SessionSerializer
 
     def create(self, request, *args, **kwargs):
